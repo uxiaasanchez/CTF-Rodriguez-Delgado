@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedidos online | Café Nocturno</title>
+  <style>
+    :root { --bg:#1b1410; --card:#2a1f18; --border:#3b2d22; --accent:#d9a066; --text:#f3e9dc; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    header { text-align: center; padding: 3.5rem 1rem 1.5rem; }
+    header h1 { color: var(--accent); font-size: 2.6rem; letter-spacing: 2px; }
+    header p { opacity: .8; margin-top: .4rem; }
+    main { max-width: 640px; margin: 0 auto; padding: 0 1rem 3rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; }
+    .card h2 { color: var(--accent); margin-bottom: .6rem; }
+    .btn { display: inline-block; margin-top: 1rem; background: var(--accent); color: #1b1410; text-decoration: none; font-weight: 700; padding: .7rem 1.5rem; border-radius: 30px; }
+    .btn:hover { opacity: .85; }
+    footer { text-align: center; opacity: .55; font-size: .85rem; padding: 2rem 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>☕ Café Nocturno</h1>
+    <p>Pedidos online · Abierto de 20:00 a 06:00</p>
+  </header>
+  <main>
+    <div class="card">
+      <h2>¡Gracias por tu pedido!</h2>
+      <p>Hemos recibido tu pedido y lo estamos preparando. Puedes consultar el detalle y el estado en cualquier momento.</p>
+      <a class="btn" href="pedido.html?id=1042">Ver mi pedido</a>
+    </div>
+  </main>
+  <footer>&copy; 2026 Café Nocturno · Web y personajes ficticios creados para una competición CTF</footer>
+</body>
+</html>
