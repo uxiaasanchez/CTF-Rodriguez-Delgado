@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reto: Inspección de Phishing en Spotify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex items-center justify-center p-4">
+
+  <div class="max-w-2xl w-full space-y-6 my-6">
+    
+    <!-- TARJETA DEL CORREO FALSO DE SPOTIFY -->
+    <div class="bg-black text-white rounded-xl shadow-2xl overflow-hidden border border-zinc-800">
+      
+      <!-- Cabecera del Email -->
+      <div class="bg-zinc-900 p-4 border-b border-zinc-800 space-y-2 text-xs sm:text-sm">
+        <div class="flex items-center gap-2 mb-2">
+          <i class="fa-brands fa-spotify text-green-500 text-2xl"></i>
+          <span class="font-bold text-base text-white tracking-tight">Spotify Support</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-zinc-400">De:</span>
+          <span class="font-mono text-red-400 font-semibold">spotify-soporte_tecnic0@accounts-verify.com</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-zinc-400">Para:</span>
+          <span class="font-mono text-zinc-300">alumno@pruebactf.com</span>
+        </div>
+        <div class="flex justify-between pt-1 border-t border-zinc-800">
+          <span class="text-zinc-400">Asunto:</span>
+          <span class="font-bold text-amber-400">🚨 IMPORTANTE: Su suscripción de Spotify Premium ha sido CANCELADA</span>
+        </div>
+      </div>
+
+      <!-- Cuerpo del Email -->
+      <div class="p-6 text-sm leading-relaxed space-y-4 bg-zinc-950">
+        <p class="font-semibold text-base">Estimado cliente,</p>
+        
+        <p class="text-zinc-300">
+          Le informamos que su suscripción a <strong>Spotify Premium</strong> ha sido cancelada debido a un problema con el método de pago registrado en su cuenta.
+        </p>
+
+        <p class="text-zinc-300">
+          Si no actualiza la información de pago en las próximas <strong>12 horas</strong>, perderá definitivamente sus listas de reproducción, canciones descargadas y el acceso a las ventajas Premium.
+        </p>
+        
+        <!-- Enlace / Botón Falso -->
+        <div class="py-4 text-center">
+          <a href="#" 
+             onclick="mostrarAlertaPhishing(event)" 
+             title="http://spotify-update-account-security.tk/login-recovery" 
+             class="inline-block hover:opacity-90 text-black font-bold text-base py-3 px-8 rounded-full shadow-lg transition duration-200 transform hover:scale-105"
+             style="background-color: #1DB954;">
+            Restablecer Suscripción Ahora
+          </a>
+        </div>
+
+        <p class="text-xs text-zinc-500 pt-4 border-t border-zinc-900">
+          Spotify AB, Regeringsgatan 19, SE-111 53 Stockholm, Sweden.<br>
+          Este es un mensaje automático de notificación del sistema.
+        </p>
+      </div>
+    </div>
+
+    <!-- FORMULARIO DE CHECKBOXES (8 OPCIONES UNIFORMES Y MÁS SUTILES) -->
+    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-xl">
+      <h3 class="text-lg font-bold text-amber-400 mb-1 flex items-center gap-2">
+        <i class="fa-solid fa-list-check"></i> Auditoría de seguridad del mensaje
+      </h3>
+      <p class="text-xs text-slate-300 mb-4">
+        Analiza el correo electrónico y selecciona únicamente las 3 anomalías presentes en este mensaje:
+      </p>
+
+      <form id="phishingForm" onsubmit="validarPhishing(event)" class="space-y-3 text-xs sm:text-sm">
+        
+        <!-- Opción 1 (INCORRECTA) -->
+        <label class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+          <input type="checkbox" name="phish_opt" value="adjunto" class="w-4 h-4 accent-amber-400 rounded">
+          <span>Inclusión de un archivo comprimido o script ejecutable adjunto al mensaje</span>
+        </label>
+
+        <!-- Opción 2 (CORRECTA - REMITENTE) -->
+        <label class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+          <input type="checkbox" name="phish_opt" value="remitente" class="w-4 h-4 accent-amber-400 rounded">
+          <span>Incongruencia en el dominio de procedencia de la dirección del emisor</span>
+        </label>
+
+        <!-- Opción 3 (INCORRECTA) -->
+        <label class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+          <input type="checkbox" name="phish_opt" value="ortografia" class="w-4 h-4 accent-amber-400 rounded">
+          <span>Uso inusual de traducción automática o incoherencias gramaticales en la redacción</span>
+        </label>
+
+        <!-- Opción 4 (CORRECTA - URGENCIA) -->
+        <label class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+          <input type="checkbox" name="phish_opt" value="urgencia" class="w-4 h-4 accent-amber-400 rounded">
+          <span>Establecimiento de un límite de tiempo reducido bajo amenaza de pérdida del servicio</span>
+        </label>
+
+        <!-- Opción 5 (INCORRECTA) -->
+        <label class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+          <input type="checkbox" name="phish_opt" value="peticion_dinero" class="w-4 h-4 accent-amber-400 rounded">
+          <span>Solicitud directa de transferencia de dinero a una cuenta bancaria personal</span>
+        </label>
+
+        <!-- Opción 6 (CORRECTA - ENLACE) -->
+        <label class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+          <input type="checkbox" name="phish_opt" value="enlace" class="w-4 h-4 accent-amber-400 rounded">
+          <span>Discrepancia entre el hipervínculo visible y la dirección web de destino real</span>
+        </label>
+
+        <!-- Opción 7 (INCORRECTA) -->
+        <label class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+          <input type="checkbox" name="phish_opt" value="contrasena_texto" class="w-4 h-4 accent-amber-400 rounded">
+          <span>Petición de envío de credenciales respondiendo directamente al propio correo</span>
+        </label>
+
+        <!-- Opción 8 (INCORRECTA) -->
+        <label class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+          <input type="checkbox" name="phish_opt" value="premio" class="w-4 h-4 accent-amber-400 rounded">
+          <span>Oferta de sorteos de regalos o compensaciones monetarias no solicitadas</span>
+        </label>
+
+        <button type="submit" class="w-full !mt-5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded-lg shadow transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-paper-plane"></i> Enviar informe
+        </button>
+      </form>
+
+      <!-- RESULTADO EXITOSO (FLAG) -->
+      <div id="resultBox" class="hidden mt-4 p-4 bg-emerald-950/90 border-2 border-emerald-500 rounded-lg text-center">
+        <p class="text-xs text-emerald-300 font-bold tracking-wide uppercase mb-1">🎉 ¡Informe Aprobado! Flag desbloqueada:</p>
+        <p class="text-lg font-mono font-bold text-emerald-400 select-all">flag{sp0t1fy_ph1sh1ng_d3t3ct3d}</p>
+      </div>
+
+      <!-- AVISO DE ERROR SI FALLAN -->
+      <div id="errorBox" class="hidden mt-4 p-3 bg-red-950/80 border border-red-500 rounded-lg text-center text-xs text-red-300">
+        ❌ El análisis no es correcto. Asegúrate de marcar únicamente las anomalías presentes en el correo.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL DE ERROR: "HAS CAÍDO EN EL PHISHING" -->
+  <div id="phishingModal" class="fixed inset-0 z-50 hidden bg-red-950/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-red-900 border-2 border-red-500 text-white w-full max-w-md rounded-2xl p-6 text-center shadow-2xl space-y-4">
+      <div class="w-16 h-16 bg-red-800 rounded-full flex items-center justify-center mx-auto text-3xl">
+        🚨
+      </div>
+      <h2 class="text-2xl font-black tracking-tight text-white uppercase">
+        ¡ERROR: HAS CAÍDO EN EL PHISHING!
+      </h2>
+      <p class="text-sm text-red-100 leading-relaxed">
+        Has hecho clic en el enlace sin verificar la dirección de destino real. En un caso real, habrían robado tus credenciales de acceso.
+      </p>
+      <div class="bg-black/40 p-3 rounded-lg text-xs font-mono text-amber-300 text-left">
+        <p><strong>URL Maliciosa:</strong> http://spotify-update-account-security.tk/login-recovery</p>
+      </div>
+      <button onclick="cerrarAlertaPhishing()" class="w-full bg-white text-red-950 hover:bg-gray-200 font-extrabold py-2.5 rounded-xl transition">
+        Entendido, volver a intentar
+      </button>
+    </div>
+  </div>
+
+  <!-- LÓGICA JAVASCRIPT -->
+  <script>
+    function mostrarAlertaPhishing(e) {
+      e.preventDefault();
+      document.getElementById('phishingModal').classList.remove('hidden');
+    }
+
+    function cerrarAlertaPhishing() {
+      document.getElementById('phishingModal').classList.add('hidden');
+    }
+
+    function validarPhishing(e) {
+      e.preventDefault();
+      
+      const checkedBoxes = Array.from(document.querySelectorAll('input[name="phish_opt"]:checked')).map(cb => cb.value);
+      const correctAnswers = ['remitente', 'urgencia', 'enlace'];
+
+      const resultBox = document.getElementById('resultBox');
+      const errorBox = document.getElementById('errorBox');
+
+      const esCorrecto = checkedBoxes.length === 3 && correctAnswers.every(val => checkedBoxes.includes(val));
+
+      if (esCorrecto) {
+        resultBox.classList.remove('hidden');
+        errorBox.classList.add('hidden');
+      } else {
+        errorBox.classList.remove('hidden');
+        resultBox.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>

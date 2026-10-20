@@ -1,0 +1,22 @@
+REGISTRO DE VISITAS A LA WEB DEL CAFÉ NOCTURNO
+Fecha: 18/10/2026
+Cada línea es una visita. Columnas: HORA | IP (dirección del visitante) | ACCIÓN | PÁGINA | RESULTADO | DISPOSITIVO
+====================================================================================================
+22:10:05 | 192.0.2.10    | Ver    | /             | 200 OK        | Móvil de un cliente
+22:15:40 | 192.0.2.11    | Ver    | /carta        | 200 OK        | Portátil de un cliente
+22:20:12 | 192.0.2.50    | Ver    | /admin        | 200 OK        | Portátil del dueño
+22:20:30 | 192.0.2.50    | Entrar | /admin/login  | 200 OK        | Portátil del dueño
+22:25:50 | 198.51.100.23 | Ver    | /phpmyadmin   | 404 NO EXISTE | Robot desconocido
+22:30:21 | 192.0.2.10    | Ver    | /reservas     | 200 OK        | Móvil de un cliente
+22:35:02 | 192.0.2.14    | Ver    | /             | 200 OK        | Tablet de un cliente
+22:40:48 | 192.0.2.99    | Ver    | /             | 200 OK        | Programa de línea de comandos
+22:41:20 | 192.0.2.99    | Ver    | /admin        | 401 RECHAZADO | Programa de línea de comandos
+22:41:31 | 192.0.2.99    | Entrar | /admin/login  | 401 RECHAZADO | Programa de línea de comandos
+22:41:34 | 192.0.2.99    | Entrar | /admin/login  | 401 RECHAZADO | Programa de línea de comandos
+22:41:37 | 192.0.2.99    | Entrar | /admin/login  | 401 RECHAZADO | Programa de línea de comandos
+22:41:52 | 192.0.2.99    | Entrar | /admin/login  | 200 OK        | Programa de línea de comandos
+22:42:10 | 192.0.2.99    | Ver    | /admin/panel  | 200 OK        | Programa de línea de comandos
+22:44:30 | 192.0.2.11    | Ver    | /reservas     | 200 OK        | Portátil de un cliente
+22:47:15 | 192.0.2.15    | Ver    | /carta        | 200 OK        | Móvil de un cliente
+22:50:03 | 192.0.2.12    | Ver    | /             | 200 OK        | Móvil de un cliente
+22:55:40 | 192.0.2.14    | Ver    | /contacto     | 200 OK        | Tablet de un cliente

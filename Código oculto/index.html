@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Nocturno | Abierto de noche</title>
+  <meta name="description" content="Café Nocturno: cafetería nocturna con wifi, enchufes y buen café.">
+  <!-- TODO: cambiar la fuente antes de la inauguración -->
+  <style>
+    /* ===== Estilos generales ===== */
+    :root {
+      --bg: #1b1410;
+      --card: #2a1f18;
+      --border: #3b2d22;
+      --accent: #d9a066;
+      --text: #f3e9dc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* nota del dev: la clave de prueba era flag{esto_no_es_la_flag_real} */
+
+    .aviso {
+      background: var(--accent); color: #1b1410; text-align: center;
+      padding: .6rem 1rem; font-weight: bold; font-size: .95rem;
+    }
+    header.hero {
+      text-align: center; padding: 5rem 1rem 3rem;
+      background: radial-gradient(circle at 50% 0%, #3a2819 0%, var(--bg) 70%);
+    }
+    .hero h1 { font-size: 3.2rem; color: var(--accent); letter-spacing: 2px; }
+    .hero p { opacity: .85; margin: .6rem 0 1.5rem; }
+    .btn {
+      display: inline-block; background: var(--accent); color: #1b1410; border: none;
+      padding: .7rem 1.6rem; border-radius: 30px; font-size: 1rem; font-weight: bold;
+      cursor: pointer; text-decoration: none;
+    }
+    .btn:hover { opacity: .85; }
+    nav { position: sticky; top: 0; background: rgba(27,20,16,.95); text-align: center; padding: 1rem; z-index: 10; border-bottom: 1px solid var(--border); }
+    nav a { color: var(--text); text-decoration: none; margin: 0 1rem; }
+    nav a:hover { color: var(--accent); }
+    main { max-width: 950px; margin: 0 auto; padding: 0 1rem 3rem; }
+    section { margin: 3.5rem 0; }
+    h2 { color: var(--accent); margin-bottom: 1.2rem; font-size: 1.9rem; }
+    .tabs { margin-bottom: 1.2rem; }
+    .tab { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: .5rem 1.1rem; border-radius: 20px; cursor: pointer; margin-right: .4rem; font-family: inherit; }
+    .tab.active { background: var(--accent); color: #1b1410; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .card { background: var(--card); padding: 1.4rem; border-radius: 12px; border: 1px solid var(--border); }
+    .card h3 { color: var(--accent); margin-bottom: .3rem; }
+    .price { float: right; font-weight: bold; }
+    .quote { font-style: italic; }
+    .quote small { display: block; margin-top: .6rem; opacity: .7; font-style: normal; }
+    form { display: grid; gap: .8rem; max-width: 450px; }
+    input, select, textarea {
+      padding: .7rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--card); color: var(--text); font-family: inherit; font-size: 1rem;
+    }
+    #respuesta { margin-top: 1rem; color: var(--accent); min-height: 1.5rem; }
+    footer { text-align: center; padding: 2.5rem 1rem; opacity: .6; font-size: .9rem; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+  <!-- Version 0.3 - web en construccion, no tocar el servidor -->
+
+  <header class="hero">
+    <h1>☕ Café Nocturno</h1>
+    <p>Abierto cuando el resto del mundo duerme · 20:00 – 06:00</p>
+    <a href="#reservas" class="btn">Reservar mesa</a>
+  </header>
+
+  <nav>
+    <a href="#carta">Carta</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#opiniones">Opiniones</a>
+    <a href="#reservas">Reservas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <main>
+
+    <section id="carta">
+      <h2>Nuestra carta</h2>
+      <div class="tabs">
+        <button class="tab active" data-cat="todo">Todo</button>
+        <button class="tab" data-cat="cafe">Cafés</button>
+        <button class="tab" data-cat="comer">Para comer</button>
+        <button class="tab" data-cat="frio">Frío</button>
+      </div>
+      <div class="grid" id="lista">
+        <div class="card" data-cat="cafe"><h3>Espresso <span class="price">1,50 €</span></h3><p>Intenso, corto y sin piedad.</p></div>
+        <div class="card" data-cat="cafe"><h3>Café con leche <span class="price">2,00 €</span></h3><p>El clásico que nunca falla.</p></div>
+        <div class="card" data-cat="frio"><h3>Cold Brew <span class="price">3,20 €</span></h3><p>Doce horas de infusión en frío.</p></div>
+        <div class="card" data-cat="frio"><h3>Frappé de moka <span class="price">3,80 €</span></h3><p>Chocolate, café y mucho hielo.</p></div>
+        <div class="card" data-cat="comer"><h3>Tostada con tomate <span class="price">2,50 €</span></h3><p>Pan de masa madre y aceite de oliva.</p></div>
+        <div class="card" data-cat="comer"><h3>Tarta de queso <span class="price">4,20 €</span></h3><p>Cremosa, al estilo vasco.</p></div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <h2>Nosotros</h2>
+      <p>
+        Café Nocturno nació en 2019 con una idea sencilla: un sitio tranquilo
+        para quienes trabajan, estudian o simplemente no pueden dormir.
+        Tenemos wifi rápido, enchufes en todas las mesas y música a bajo volumen.
+        Aquí nadie te mete prisa.
+      </p>
+    </section>
+
+    <!-- admin_panel: /admin (desactivado temporalmente) -->
+
+    <section id="opiniones">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <div class="grid">
+        <div class="card quote">“El mejor sitio para estudiar de madrugada.”<small>— Lucía, estudiante</small></div>
+        <div class="card quote">“El cold brew me ha cambiado la vida.”<small>— Marcos, programador</small></div>
+        <div class="card quote">“Wifi rápido y gente tranquila. Perfecto.”<small>— Irene, diseñadora</small></div>
+      </div>
+    </section>
+
+    <section id="reservas">
+      <h2>Reserva tu mesa</h2>
+      <form id="form-reserva">
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+        <select id="personas">
+          <option>1 persona</option>
+          <option>2 personas</option>
+          <option>3-4 personas</option>
+          <option>5 o más</option>
+        </select>
+        <input type="time" id="hora" required>
+        <button type="submit" class="btn">Reservar</button>
+      </form>
+      <p id="respuesta"></p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>📍 Calle de la Luna, 13</p>
+      <p>✉️ hola@cafenocturno.example</p>
+      <p>📞 600 000 000</p>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Café Nocturno. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // Filtro de la carta
+    document.querySelectorAll('.tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var cat = tab.dataset.cat;
+        document.querySelectorAll('#lista .card').forEach(function (c) {
+          c.style.display = (cat === 'todo' || c.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+
+    // Formulario de reservas (solo de adorno, no envía nada)
+    document.getElementById('form-reserva').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nombre = document.getElementById('nombre').value;
+      document.getElementById('respuesta').textContent =
+        '¡Gracias, ' + nombre + '! Te esperamos. (Reserva simulada)';
+    });
+  </script>
+
+  <!--
+    Nota para el equipo de desarrollo:
+    se me olvidó borrar este comentario antes de subir la web...
+    FLAG: flag{n0_c0nf13s_3n_3l_c0m3nt4r10_0cult0}
+  -->
+
+</body>
+</html>

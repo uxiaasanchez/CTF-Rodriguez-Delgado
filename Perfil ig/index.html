@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iria Fernández (@iriafdezz) • Instagram photos and videos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .ig-story-gradient {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen">
+
+  <!-- CABECERA -->
+  <header class="sticky top-0 z-30 bg-white dark:bg-black border-b border-gray-200 dark:border-zinc-800 px-4 py-2.5">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 cursor-pointer">
+        <i class="fa-brands fa-instagram text-2xl"></i>
+        <span class="font-bold text-lg tracking-tight">Instagram</span>
+      </div>
+      <div class="flex items-center gap-4 text-xl">
+        <i class="fa-regular fa-square-plus cursor-pointer hover:opacity-60"></i>
+        <i class="fa-regular fa-heart cursor-pointer hover:opacity-60"></i>
+        <div class="w-7 h-7 rounded-full overflow-hidden border border-gray-300 dark:border-zinc-700 cursor-pointer">
+          <img data-src="avatar" class="w-full h-full object-cover" alt="">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-6 md:py-10">
+
+    <!-- PERFIL -->
+    <section class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-16 mb-8 md:mb-12 pb-8 border-b border-gray-200 dark:border-zinc-800">
+
+      <div class="relative cursor-pointer" onclick="openStoryModal('friends')">
+        <div class="w-24 h-24 sm:w-36 sm:h-36 rounded-full p-[3px] ig-story-gradient flex items-center justify-center">
+          <div class="w-full h-full bg-white dark:bg-black rounded-full p-[2px]">
+            <img data-src="avatar" alt="Iria Fernández" class="w-full h-full object-cover rounded-full">
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1 text-center md:text-left">
+        <div class="flex flex-col sm:flex-row items-center gap-4 mb-4">
+          <h1 class="text-xl sm:text-2xl font-light tracking-normal flex items-center gap-1.5">
+            iriafdezz
+            <i class="fa-solid fa-circle-check text-blue-500 text-sm" title="Verificado"></i>
+          </h1>
+          <div class="flex gap-2 text-sm font-semibold">
+            <button class="px-5 py-1.5 bg-[#0095f6] hover:bg-[#1877f2] text-white rounded-lg transition">Seguir</button>
+            <button class="px-4 py-1.5 bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 rounded-lg transition">Enviar mensaje</button>
+            <button class="px-3 py-1.5 bg-gray-100 dark:bg-zinc-800 rounded-lg"><i class="fa-solid fa-user-check"></i></button>
+          </div>
+        </div>
+
+        <div class="flex justify-center md:justify-start gap-8 mb-4 text-sm md:text-base">
+          <div><strong class="font-semibold">3</strong> publicaciones</div>
+          <div><strong class="font-semibold">842</strong> seguidores</div>
+          <div><strong class="font-semibold">615</strong> seguidos</div>
+        </div>
+
+        <!-- BIO -->
+        <div class="text-sm space-y-1">
+          <h2 class="font-semibold">Iria Fernández</h2>
+          <p class="text-gray-700 dark:text-gray-300">Tecnologías de las Telecomunicaciones - UAB</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORIAS DESTACADAS -->
+    <section class="mb-8 md:mb-12">
+      <div class="flex gap-6 overflow-x-auto no-scrollbar pb-2 px-2">
+
+        <div class="flex flex-col items-center gap-1.5 min-w-[72px] cursor-pointer" onclick="openStoryModal('friends')">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2px] border-2 border-gray-300 dark:border-zinc-700 flex items-center justify-center hover:scale-105 transition">
+            <img data-src="friends" class="w-full h-full object-cover rounded-full" alt="friends">
+          </div>
+          <span class="text-xs font-medium tracking-tight">friends 🎉</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-1.5 min-w-[72px] cursor-pointer" onclick="openStoryModal('travels')">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2px] border-2 border-gray-300 dark:border-zinc-700 flex items-center justify-center hover:scale-105 transition">
+            <img data-src="travels" class="w-full h-full object-cover rounded-full" alt="travels">
+          </div>
+          <span class="text-xs font-medium tracking-tight">travels ✈️</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PESTAÑAS -->
+    <div class="border-t border-gray-200 dark:border-zinc-800 flex justify-center gap-12 text-xs font-semibold tracking-widest uppercase mb-4 text-gray-500">
+      <button class="flex items-center gap-2 py-3 border-t-2 border-black dark:border-white text-black dark:text-white -mt-[1px]">
+        <i class="fa-solid fa-table-cells text-sm"></i> Publicaciones
+      </button>
+      <button class="flex items-center gap-2 py-3 hover:text-black dark:hover:text-white">
+        <i class="fa-solid fa-clapperboard text-sm"></i> Reels
+      </button>
+      <button class="flex items-center gap-2 py-3 hover:text-black dark:hover:text-white">
+        <i class="fa-solid fa-user-tag text-sm"></i> Etiquetadas
+      </button>
+    </div>
+
+    <!-- GRID DE PUBLICACIONES -->
+    <section class="grid grid-cols-3 gap-1 md:gap-4">
+
+      <div class="relative aspect-square bg-gray-100 dark:bg-zinc-900 overflow-hidden cursor-pointer group" onclick="openPostModal(0)">
+        <img data-src="coco" alt="Coco" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-6 text-white font-bold">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-heart"></i> 248</span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-comment"></i> 14</span>
+        </div>
+      </div>
+
+      <div class="relative aspect-square bg-gray-100 dark:bg-zinc-900 overflow-hidden cursor-pointer group" onclick="openPostModal(1)">
+        <img data-src="cumple" alt="Cumpleaños 21" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-6 text-white font-bold">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-heart"></i> 512</span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-comment"></i> 38</span>
+        </div>
+      </div>
+
+      <div class="relative aspect-square bg-gray-100 dark:bg-zinc-900 overflow-hidden cursor-pointer group" onclick="openPostModal(2)">
+        <img data-src="newyork" alt="New York" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-6 text-white font-bold">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-heart"></i> 890</span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-comment"></i> 64</span>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- MODAL DE PUBLICACIÓN -->
+  <div id="postModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
+    <div class="bg-white dark:bg-zinc-900 w-full max-w-4xl rounded-xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]">
+
+      <div class="md:w-3/5 bg-black flex items-center justify-center relative min-h-[300px]">
+        <img id="modalImg" src="" class="max-h-[85vh] w-full object-contain" alt="">
+      </div>
+
+      <div class="md:w-2/5 flex flex-col h-full border-l border-gray-200 dark:border-zinc-800">
+
+        <div class="p-3.5 border-b border-gray-200 dark:border-zinc-800 flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <img data-src="avatar" class="w-8 h-8 rounded-full object-cover" alt="">
+            <span class="font-semibold text-xs">iriafdezz</span>
+          </div>
+          <button onclick="closePostModal()" class="text-gray-500 hover:text-black dark:hover:text-white text-xl">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-4 space-y-4 text-xs">
+          <div class="flex gap-2.5">
+            <img data-src="avatar" class="w-7 h-7 rounded-full object-cover shrink-0" alt="">
+            <div>
+              <span class="font-bold mr-1.5">iriafdezz</span>
+              <span id="modalCaption" class="text-gray-800 dark:text-gray-200"></span>
+              <p id="modalTime" class="text-[10px] text-gray-400 mt-1.5">HACE 2 DÍAS</p>
+            </div>
+          </div>
+          <hr class="border-gray-100 dark:border-zinc-800">
+          <div id="modalCommentsList" class="space-y-3"></div>
+        </div>
+
+        <div class="p-3 border-t border-gray-200 dark:border-zinc-800 text-xs">
+          <div class="flex justify-between items-center mb-2 text-lg">
+            <div class="flex gap-3">
+              <i class="fa-regular fa-heart hover:text-red-500 cursor-pointer"></i>
+              <i class="fa-regular fa-comment hover:text-gray-500 cursor-pointer"></i>
+              <i class="fa-regular fa-paper-plane hover:text-gray-500 cursor-pointer"></i>
+            </div>
+            <i class="fa-regular fa-bookmark hover:text-gray-500 cursor-pointer"></i>
+          </div>
+          <p id="modalLikes" class="font-bold mb-1">248 Me gusta</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE HISTORIAS -->
+  <div id="storyModal" class="fixed inset-0 z-50 hidden bg-black/95 flex items-center justify-center p-4">
+    <div class="relative w-full max-w-sm h-[80vh] bg-zinc-900 rounded-2xl overflow-hidden flex flex-col justify-between p-4 shadow-2xl">
+      <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden mb-2 z-10">
+        <div class="bg-white h-full w-2/3 animate-pulse"></div>
+      </div>
+      <div class="flex items-center justify-between text-white z-10">
+        <div class="flex items-center gap-2">
+          <img data-src="avatar" class="w-8 h-8 rounded-full object-cover" alt="">
+          <span class="font-bold text-xs">iriafdezz</span>
+        </div>
+        <button onclick="closeStoryModal()" class="text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <img id="storyImg" src="" class="w-full h-full object-cover" alt="">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const IMG = {
+      avatar:  "https://i.pinimg.com/736x/f2/9d/7c/f29d7cc51cb7307f872aba468db778a7.jpg",   // foto de perfil
+      friends: "https://i.pinimg.com/736x/d0/08/75/d00875ac21822ea94b8f331debbb7a8f.jpg",   // destacada "friends"
+      travels: "https://i.pinimg.com/736x/85/1a/27/851a27d50c2eada8caa801e3c7f46442.jpg",   // destacada "travels"
+      coco:    "https://i.pinimg.com/736x/24/9f/59/249f5926af85edf6bbd0da9e2e1cf7f9.jpg",   // publicación 1
+      cumple:  "https://i.pinimg.com/736x/2e/cc/a8/2ecca897d02cb29e2c046573c6b39d6c.jpg",   // publicación 2
+      newyork: "https://i.pinimg.com/736x/3d/2a/0d/3d2a0d6cdfcd1da499c66102e57d0f32.jpg"    // publicación 3
+    };
+    document.querySelectorAll('img[data-src]').forEach(el => { el.src = IMG[el.dataset.src]; });
+
+    const postsData = [
+      {
+        image: IMG.coco,
+        caption: "mi dormilón <3",
+        date: "HACE 2 DÍAS",
+        likes: "248 Me gusta",
+        comments: [
+          { user: "laura_gomez", text: "Qué cosa más bonita 😻" },
+          { user: "carlos_fdezz", text: "Coco es el rey de la casa  AJAJJA" }
+        ]
+      },
+      {
+        image: IMG.cumple,
+        caption: "it's supposed to be fun, turning 21...",
+        date: "13 DE JUNIO DE 2026",
+        likes: "512 Me gusta",
+        comments: [
+          { user: "martuski__", text: "Felicidades amiga!! Te quiero ❤️" },
+          { user: "pablo_uab", text: "Happy bday reina😍" }
+        ]
+      },
+      {
+        image: IMG.newyork,
+        caption: "welcome to new york..",
+        date: "22 DE FEBRERO DE 2026",
+        likes: "890 Me gusta",
+        comments: [
+          { user: "sofiaa05", text: "Disfruta muchísimo por mí 😍" },
+          { user: "alberto_4", text: "COMO MOLA" }
+        ]
+      }
+    ];
+
+    const storiesData = {
+      friends: IMG.friends,
+      travels: IMG.travels
+    };
+
+    function openPostModal(index) {
+      const post = postsData[index];
+      document.getElementById('modalImg').src = post.image;
+      document.getElementById('modalCaption').innerText = post.caption;
+      document.getElementById('modalLikes').innerText = post.likes;
+      document.getElementById('modalTime').innerText = post.date;
+
+      document.getElementById('modalCommentsList').innerHTML = post.comments.map(c => `
+        <div class="flex gap-2.5">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-400 to-rose-500 flex items-center justify-center text-[10px] text-white font-bold shrink-0">
+            ${c.user[0].toUpperCase()}
+          </div>
+          <div>
+            <span class="font-bold mr-1.5">${c.user}</span>
+            <span class="text-gray-700 dark:text-gray-300">${c.text}</span>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('postModal').classList.remove('hidden');
+    }
+
+    function closePostModal() { document.getElementById('postModal').classList.add('hidden'); }
+
+    function openStoryModal(key) {
+      document.getElementById('storyImg').src = storiesData[key];
+      document.getElementById('storyModal').classList.remove('hidden');
+    }
+
+    function closeStoryModal() { document.getElementById('storyModal').classList.add('hidden'); }
+  </script>
+</body>
+</html>
